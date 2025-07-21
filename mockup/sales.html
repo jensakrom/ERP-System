@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & CRM - ERP System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <span class="ml-2 text-xl font-semibold text-gray-900">ERP System</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5z"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="relative">
+                        <button class="flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            <div class="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <span class="text-white font-medium text-sm">JD</span>
+                            </div>
+                            <span class="ml-2 text-gray-700">John Doe</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-sm h-screen">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <a href="dashboard.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                        </svg>
+                        Dashboard
+                    </a>
+                    
+                    <a href="finance.html" class="bg-primary text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        Finance
+                    </a>
+                    
+                    <a href="inventory.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        Inventory
+                    </a>
+                    
+                    <a href="sales.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M8 11v6a2 2 0 002 2h4a2 2 0 002-2v-6M8 11h8"></path>
+                        </svg>
+                        Sales & CRM
+                    </a>
+                    
+                    <a href="hr.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        Human Resources
+                    </a>
+                    
+                    <a href="manufacturing.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Manufacturing
+                    </a>
+                    
+                    <a href="procurement.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M8 11v6a2 2 0 002 2h4a2 2 0 002-2v-6M8 11h8"></path>
+                        </svg>
+                        Procurement
+                    </a>
+                    
+                    <a href="projects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                        Projects
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <!-- Header -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Sales & CRM</h1>
+                        <p class="text-gray-600">Manage leads, opportunities, and customer relationships with AI-powered insights</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="bg-white border border-gray-300 rounded-md px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            Import Leads
+                        </button>
+                        <button class="bg-primary text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-secondary">
+                            Add Lead
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales KPIs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Monthly Revenue</dt>
+                                <dd class="text-lg font-medium text-gray-900">$284,739</dd>
+                            </dl>
+                        </div>
+                        <div class="text-green-500 text-sm font-medium">+18.2%</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Active Leads</dt>
+                                <dd class="text-lg font-medium text-gray-900">156</dd>
+                            </dl>
+                        </div>
+                        <div class="text-green-500 text-sm font-medium">+23</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Conversion Rate</dt>
+                                <dd class="text-lg font-medium text-gray-900">24.5%</dd>
+                            </dl>
+                        </div>
+                        <div class="text-green-500 text-sm font-medium">+3.2%</div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-purple-500 rounded-md flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Avg. Deal Size</dt>
+                                <dd class="text-lg font-medium text-gray-900">$12,450</dd>
+                            </dl>
+                        </div>
+                        <div class="text-green-500 text-sm font-medium">+$1,200</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Tabs -->
+            <div class="bg-white rounded-lg shadow mb-6">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8 px-6" aria-label="Tabs">
+                        <button class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="showSalesTab('pipeline')">
+                            Sales Pipeline
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="showSalesTab('leads')">
+                            Leads
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="showSalesTab('opportunities')">
+                            Opportunities
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="showSalesTab('customers')">
+                            Customers
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="showSalesTab('ai-insights')">
+                            AI Insights
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Sales Pipeline Tab -->
+                <div id="pipeline" class="sales-tab-content p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Sales Pipeline</h3>
+                        <button class="bg-primary text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-secondary">
+                            Add Deal
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <!-- Lead Stage -->
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-sm font-medium text-gray-900">Leads</h4>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">45</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-blue-400">
+                                    <h5 class="text-sm font-medium text-gray-900">Acme Corp</h5>
+                                    <p class="text-xs text-gray-500">Software License</p>
+                                    <p class="text-sm font-medium text-green-600">$25,000</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-blue-400">
+                                    <h5 class="text-sm font-medium text-gray-900">Tech Solutions</h5>
+                                    <p class="text-xs text-gray-500">Consulting</p>
+                                    <p class="text-sm font-medium text-green-600">$15,000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Qualified Stage -->
+                        <div class="bg-yellow-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-sm font-medium text-gray-900">Qualified</h4>
+                                <span class="text-xs bg-yellow-200 text-yellow-700 px-2 py-1 rounded-full">32</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-yellow-400">
+                                    <h5 class="text-sm font-medium text-gray-900">Global Industries</h5>
+                                    <p class="text-xs text-gray-500">ERP Implementation</p>
+                                    <p class="text-sm font-medium text-green-600">$85,000</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-yellow-400">
+                                    <h5 class="text-sm font-medium text-gray-900">StartupXYZ</h5>
+                                    <p class="text-xs text-gray-500">Cloud Migration</p>
+                                    <p class="text-sm font-medium text-green-600">$35,000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proposal Stage -->
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-sm font-medium text-gray-900">Proposal</h4>
+                                <span class="text-xs bg-orange-200 text-orange-700 px-2 py-1 rounded-full">18</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-orange-400">
+                                    <h5 class="text-sm font-medium text-gray-900">Enterprise Ltd</h5>
+                                    <p class="text-xs text-gray-500">Custom Development</p>
+                                    <p class="text-sm font-medium text-green-600">$125,000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Closed Won Stage -->
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="text-sm font-medium text-gray-900">Closed Won</h4>
+                                <span class="text-xs bg-green-200 text-green-700 px-2 py-1 rounded-full">12</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-md shadow-sm border-l-4 border-green-400">
+                                    <h5 class="text-sm font-medium text-gray-900">MegaCorp</h5>
+                                    <p class="text-xs text-gray-500">Annual License</p>
+                                    <p class="text-sm font-medium text-green-600">$95,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leads Tab -->
+                <div id="leads" class="sales-tab-content p-6 hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Lead Management</h3>
+                        <button class="bg-primary text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-secondary">
+                            Import Leads
+                        </button>
+                    </div>
+
+                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-300">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lead</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Contact</th>
+                                    <th class="relative px-6 py-3"><span class="sr-only">Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                                                <span class="text-white font-medium text-xs">JS</span>
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">John Smith</div>
+                                                <div class="text-sm text-gray-500">john@acme.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Acme Corporation</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Website</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                                    <span class="text-sm font-medium text-green-800">92</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Hot</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2 hours ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-primary hover:text-secondary">Contact</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full flex items-center justify-center">
+                                                <span class="text-white font-medium text-xs">SW</span>
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Sarah Wilson</div>
+                                                <div class="text-sm text-gray-500">sarah@techsol.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Tech Solutions Inc</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Referral</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                                                    <span class="text-sm font-medium text-yellow-800">76</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Warm</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1 day ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-primary hover:text-secondary">Contact</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center">
+                                                <span class="text-white font-medium text-xs">MJ</span>
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">Mike Johnson</div>
+                                                <div class="text-sm text-gray-500">mike@global.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Global Industries</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">LinkedIn</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                                    <span class="text-sm font-medium text-blue-800">45</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Cold</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1 week ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-primary hover:text-secondary">Follow Up</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Opportunities Tab -->
+                <div id="opportunities" class="sales-tab-content p-6 hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Sales Opportunities</h3>
+                        <button class="bg-primary text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-secondary">
+                            Create Opportunity
+                        </button>
+                    </div>
+
+                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-300">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Opportunity</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Account</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Probability</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Close Date</th>
+                                    <th class="relative px-6 py-3"><span class="sr-only">Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Closed Won</div>
+                                        <div class="text-sm text-gray-500">OPP-2024-003</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Enterprise Ltd</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Closed Won</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$125,000</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">100%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Nov 20, 2024</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-primary hover:text-secondary">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Customers Tab -->
+                <div id="customers" class="sales-tab-content p-6 hidden">
+                    <h3 class="text-lg font-medium text-gray-900">Customer Management</h3>
+                    <p>This is the Customers tab content.</p>
+                </div>
+
+                <!-- AI Insights Tab -->
+                <div id="ai-insights" class="sales-tab-content p-6 hidden">
+                    <h3 class="text-lg font-medium text-gray-900">AI-Powered Insights</h3>
+                    <p>This is the AI Insights tab content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSalesTab(tabId) {
+            const tabContents = document.querySelectorAll('.sales-tab-content');
+            tabContents.forEach(tab => tab.classList.add('hidden'));
+
+            const tabs = document.querySelectorAll('nav button');
+            tabs.forEach(tab => {
+                tab.classList.remove('border-primary', 'text-primary');
+                tab.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+            });
+
+            document.querySelector(`button[onclick="showSalesTab('${tabId}')"]`).classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+            document.querySelector(`button[onclick="showSalesTab('${tabId}')"]`).classList.add('border-primary', 'text-primary');
+
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
